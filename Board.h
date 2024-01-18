@@ -98,6 +98,13 @@ public:
 
     }
 
+    Board(const Board &other) {
+        cost = other.cost;
+        for (size_t i = 0; i < 64; ++i) {
+            repres.at(i) = other.repres.at(i);
+        }
+    }
+
     void setCost(int newCost) {
         cost = newCost;
     }
