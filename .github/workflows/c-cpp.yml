@@ -1,0 +1,25 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ "master", "qt" ]
+  pull_request:
+    branches: [ "master", "qt" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Install dependencies
+      run: sudo apt-get install -y build-essential cmake
+     
+    - name: Build
+      run: |
+       mkdir build
+       cd build
+       cmake ..
+       make
